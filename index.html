@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Porsche 911: Every part, a purpose. A concept experience</title>
+<meta name="description" content="A single-page 3D concept experience for the Porsche 911: form study, blueprint, clay and reality, a full deconstruction of the 3.8L flat-six with 480 HP, reassembly and rebirth. 0-100 km/h in 3.2s, 1,350 kg, since 1963.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M3 20 C8 12 12 9 16 9 C20 9 24 12 29 20 L29 23 L3 23 Z' fill='%23d21f26'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<main id="top">
+  <!-- ============ SCROLL STAGE ============ -->
+  <div class="scroll-space" id="scrollSpace">
+    <section class="stage" id="stage" aria-label="Porsche 911 concept experience in 3D, scroll to explore">
+      <div class="scene" id="scene" aria-hidden="true"></div>
+
+      <!-- Form Study overlay: the line draws, then hands over to the model -->
+      <div class="formstudy" id="formStudy" aria-hidden="true">
+        <svg class="form-svg" viewBox="0 0 1000 360" preserveAspectRatio="xMidYMid meet">
+          <path id="formPathMain" pathLength="100" d="M -10 208 L 268 202 C 330 200 372 196 408 190 C 452 128 505 92 585 84 C 668 76 742 96 800 138 C 848 172 884 190 936 196 L 990 200" />
+          <path id="formPathGlass" pathLength="100" d="M 428 188 C 468 126 516 100 578 94 C 636 89 690 104 730 138 C 756 160 772 178 782 192 M 668 100 C 682 128 692 158 698 190" />
+        </svg>
+      </div>
+
+      <!-- transition wash for the material morphs -->
+      <div class="wash" id="wash" aria-hidden="true"></div>
+
+      <!-- HUD: chapter label, top left -->
+      <div class="hud hud-tl">
+        <p class="hud-chapter" id="hudChapter">911 / FORM STUDY</p>
+        <div class="hud-since" id="hudSince" hidden>
+          <h1>SINCE 1963</h1>
+          <p>BLUEPRINT / CLAY / REALITY</p>
+        </div>
+      </div>
+      <p class="hud hud-tr" id="hudBrand" hidden>PORSCHE 911 - CONCEPT</p>
+
+      <!-- spec counter, right side -->
+      <div class="spec-counter" id="specCounter" hidden aria-hidden="true">
+        <span class="spec-cap">480 HP</span>
+        <span class="spec-num" id="specNum">0</span>
+      </div>
+
+      <!-- corner stats, exploded chapter -->
+      <p class="hud-stat stat-bl" id="statAccel" hidden>0-100 KM/H <strong>3.2S</strong></p>
+      <p class="hud-stat stat-br" id="statWeight" hidden>1,350 KG</p>
+
+      <!-- one-word verdicts, bottom left -->
+      <p class="statement" id="statement" hidden>ENGINEERED.</p>
+
+      <!-- centred lines -->
+      <p class="assembly-line" id="assemblyLine" hidden>EVERY COMPONENT. EVERY CONNECTION.</p>
+      <p class="tagline" id="tagline" hidden>911 - Every part, a purpose.</p>
+
+      <!-- 3D label + reticle (creator recipe: HTML pill + SVG leader line) -->
+      <svg class="label-svg" id="labelSvg" aria-hidden="true"></svg>
+      <div class="reticle" id="reticle" hidden aria-hidden="true">
+        <svg viewBox="0 0 160 160">
+          <circle class="ret-ring" cx="80" cy="80" r="62" />
+          <g class="ret-ticks">
+            <line x1="80" y1="6" x2="80" y2="18" /><line x1="80" y1="142" x2="80" y2="154" />
+            <line x1="6" y1="80" x2="18" y2="80" /><line x1="142" y1="80" x2="154" y2="80" />
+          </g>
+          <text x="80" y="34" class="ret-num">000</text>
+          <text x="128" y="84" class="ret-num">090</text>
+          <text x="80" y="136" class="ret-num">180</text>
+          <text x="30" y="84" class="ret-num">270</text>
+        </svg>
+      </div>
+      <div class="labels" id="labels">
+        <div class="lbl" id="lbl-engine" data-label="engine">3.8L FLAT-SIX</div>
+      </div>
+
+      <!-- chapter dots: the only navigation the film allows -->
+      <nav class="dots" id="dots" aria-label="Chapters">
+        <button class="dot is-active" data-goto="0" data-p="0.02"><span class="dot-pip" aria-hidden="true"></span><span class="dot-name">Form</span></button>
+        <button class="dot" data-goto="1" data-p="0.125"><span class="dot-pip" aria-hidden="true"></span><span class="dot-name">Blueprint</span></button>
+        <button class="dot" data-goto="2" data-p="0.50"><span class="dot-pip" aria-hidden="true"></span><span class="dot-name">01</span></button>
+        <button class="dot" data-goto="3" data-p="0.68"><span class="dot-pip" aria-hidden="true"></span><span class="dot-name">02</span></button>
+        <button class="dot" data-goto="4" data-p="0.90"><span class="dot-pip" aria-hidden="true"></span><span class="dot-name">03</span></button>
+      </nav>
+
+      <p class="scroll-hint" id="scrollHint">Scroll<span aria-hidden="true">↓</span></p>
+
+      <!-- End card -->
+      <div class="endcard" id="endCard" hidden>
+        <svg class="end-svg" viewBox="0 0 600 330" aria-hidden="true">
+          <path id="endPath" pathLength="100" d="M 96 268 L 100 196 C 102 158 128 138 168 128 C 196 100 236 82 300 82 C 364 82 404 100 432 128 C 472 138 498 158 500 196 L 504 268 M 100 196 C 84 192 74 184 76 172 C 78 162 92 160 104 166 M 500 196 C 516 192 526 184 524 172 C 522 162 508 160 496 166 M 150 208 L 450 208" />
+        </svg>
+        <p class="end-tagline">911 - Every part, a purpose.</p>
+        <p class="end-small">Concept film. Not affiliated with Porsche AG.</p>
+        <button class="replay" id="replayBtn">Replay<span aria-hidden="true">↺</span></button>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ SPEC FOOTER (indexable copy) ============ -->
+  <section class="specs" id="specs">
+    <div class="wrap">
+      <h2>Porsche 911, the short version</h2>
+      <div class="spec-grid">
+        <div><strong>3.8L</strong><span>flat-six, taken apart and rebuilt on one scroll</span></div>
+        <div><strong>480 HP</strong><span>counted up as the engine is exposed</span></div>
+        <div><strong>3.2S</strong><span>0-100 km/h, as the film states it</span></div>
+        <div><strong>1,350 KG</strong><span>kerb weight, as the film states it</span></div>
+        <div><strong>1963</strong><span>the year the 911 story begins</span></div>
+        <div><strong>5 chapters</strong><span>form study, blueprint, deconstruction, reassembly, reborn</span></div>
+      </div>
+      <p class="fineprint">Demo website built from a design study of the filmed concept experience. The car is a stylised model built in code, not a photorealistic render. The source film's own end card reads: Concept film. Not affiliated with Porsche AG.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-row">
+    <span class="foot-mark">911 / CONCEPT</span>
+    <p>Every part, a purpose.</p>
+    <button class="text-link" id="footReplay">Replay the experience</button>
+  </div>
+</footer>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
